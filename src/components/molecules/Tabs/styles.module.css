@@ -1,6 +1,11 @@
 .tabs {
+  display: grid;
 }
 .tabs__label {
+  display: flex;
+  justify-content: flex-start;
 }
 .tabs__content {
+  width: 100%;
+  margin-top: 32px;
 }

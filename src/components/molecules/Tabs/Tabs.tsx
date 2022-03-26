@@ -23,11 +23,18 @@ function Tabs({ tabLabels, children, ...rest }: TabsProps) {
     return children[activeIndex];
   }, [activeIndex, children]);
 
+  const isActive = (value: number) => activeIndex === value;
+
   return (
     <div className={styles.tabs} {...rest}>
       <div className={styles.tabs__label}>
         {tabLabels.map((tab, index) => (
-          <Tab key={tab} index={index} onChange={handleIndexChange}>
+          <Tab
+            key={tab}
+            index={index}
+            active={isActive(index)}
+            onChange={handleIndexChange}
+          >
             {tab}
           </Tab>
         ))}

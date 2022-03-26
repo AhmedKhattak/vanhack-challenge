@@ -5,12 +5,19 @@ import styles from "./styles.module.css";
 export interface TabProps {
   children: any;
   index: number;
+  active: boolean;
   onChange: (props: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
-function Tab({ children, index, onChange, ...rest }: TabProps) {
+function Tab({ children, index, active, onChange, ...rest }: TabProps) {
   return (
-    <div className="tab" data-index={index} onClick={onChange} {...rest}>
+    <div
+      className={styles.tab}
+      data-index={index}
+      data-active={active}
+      onClick={onChange}
+      {...rest}
+    >
       {children}
     </div>
   );

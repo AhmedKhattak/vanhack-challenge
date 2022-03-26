@@ -1,8 +1,12 @@
 import * as React from "react";
 import Image from "next/image";
 
-import styles from "./style.module.css";
 import { Tabs } from "../../components/molecules/Tabs";
+import { JobsBoard } from "../../components/template/JobsBoard";
+import { LearnMore } from "../../components/template/LearnMore";
+import { tabs } from "../../constants";
+
+import styles from "./style.module.css";
 
 function HomePage() {
   return (
@@ -19,11 +23,8 @@ function HomePage() {
         <section className={styles.section}>
           {/* Tabs */}
           <div>
-            <Tabs tabLabels={["primeiro", "segundo"]}>
-              {[
-                React.createElement("h1", {}, "Olha"),
-                React.createElement("h1", {}, "Aqui"),
-              ]}
+            <Tabs tabLabels={[tabs.jobsLabel, tabs.articleLabel]}>
+              {[<JobsBoard key="jobs" />, <LearnMore key="learn" />]}
             </Tabs>
           </div>
         </section>
