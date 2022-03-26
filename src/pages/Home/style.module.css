@@ -1,13 +1,15 @@
 .container {
   display: grid;
   width: 100%;
-}
+  justify-items: center;
 
-.wrapper {
-  width: 800px;
-  max-width: 800px;
   margin: 0 auto;
 }
+.logo {
+  width: 800px;
+  max-width: 800px;
+}
+
 .section {
   display: flex;
   justify-content: space-between;

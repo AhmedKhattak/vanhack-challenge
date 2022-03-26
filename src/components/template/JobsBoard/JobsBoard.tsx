@@ -64,16 +64,16 @@ function JobsBoard() {
   }
   return (
     <>
-      <div className="container">
+      <div className={styles.container}>
         {mockJob.map((job) => (
           <Card key={job.id} data={job} onSelect={() => handleOpenModal(job)} />
         ))}
       </div>
-      <Modal open={open} job={{}} handleClose={handleCloseModal} />
       <BackDrop
         open={open}
         handleClose={() => setOpen((prevState) => !prevState)}
       />
+      <Modal open={open} job={{}} handleClose={handleCloseModal} />
     </>
   );
 }

@@ -7,28 +7,27 @@ import { LearnMore } from "../../components/template/LearnMore";
 import { tabs } from "../../constants";
 
 import styles from "./style.module.css";
+import clsx from "clsx";
 
 function HomePage() {
   return (
     <main className={styles.container}>
-      <div className={styles.wrapper}>
-        <section className={styles.section}>
-          <Image
-            src={"/vanhack-small.svg"}
-            alt="A letter V and H simbolizing the company name: Van Hack"
-            width={136}
-            height={29}
-          />
-        </section>
-        <section className={styles.section}>
-          {/* Tabs */}
-          <div>
-            <Tabs tabLabels={[tabs.jobsLabel, tabs.articleLabel]}>
-              {[<JobsBoard key="jobs" />, <LearnMore key="learn" />]}
-            </Tabs>
-          </div>
-        </section>
-      </div>
+      <section className={clsx([styles.section, styles.logo])}>
+        <Image
+          src={"/vanhack-small.svg"}
+          alt="A letter V and H simbolizing the company name: Van Hack"
+          width={136}
+          height={29}
+        />
+      </section>
+      <section className={styles.section}>
+        {/* Tabs */}
+        <div>
+          <Tabs tabLabels={[tabs.jobsLabel, tabs.articleLabel]}>
+            {[<JobsBoard key="jobs" />, <LearnMore key="learn" />]}
+          </Tabs>
+        </div>
+      </section>
     </main>
   );
 }
