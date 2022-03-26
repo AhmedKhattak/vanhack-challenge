@@ -10,7 +10,7 @@ import { JobProps } from "../../../@types";
 
 export interface CardProps {
   data: JobProps;
-  onSelect: (data: JobProps) => void;
+  onSelect: (job: string) => void;
 }
 
 function Card({ data, onSelect }: CardProps) {
@@ -25,7 +25,7 @@ function Card({ data, onSelect }: CardProps) {
           <span>{data.numberOfPositions} positions</span>
         </div>
         <Button
-          onClick={() => onSelect(data)}
+          onClick={() => onSelect(data.slug)}
           label={"APPLY"}
           variant="outline"
         />

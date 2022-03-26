@@ -40,8 +40,6 @@ function jobListReducer(state: DataFetcherProps, action: ReducerProps) {
       return { ...state, loading: true };
     }
     case actions.loadMore: {
-      console.log("More  Load:  ", action.data);
-
       return {
         ...state,
         loading: false,
@@ -54,8 +52,6 @@ function jobListReducer(state: DataFetcherProps, action: ReducerProps) {
       return { ...state, loading: false, error: action.message };
     }
     case actions.loadCompleted: {
-      console.log("First Load:  ", action.data);
-
       return {
         ...state,
         loading: false,

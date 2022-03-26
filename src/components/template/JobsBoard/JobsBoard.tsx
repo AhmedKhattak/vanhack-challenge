@@ -8,11 +8,6 @@ import { Modal } from "../../organisms/Modal";
 
 import styles from "./styles.module.css";
 
-export interface BackDropProps {
-  open: boolean;
-  handleClose: () => void;
-}
-
 export interface ModalJobProps {}
 export interface JobsBoardProps {}
 
@@ -25,6 +20,7 @@ function JobsBoard() {
   } = useFetchJobs();
 
   function handleOpenModal(job: any) {
+    setModalJob(job);
     setOpen(true);
   }
   function handleCloseModal() {
@@ -40,7 +36,7 @@ function JobsBoard() {
           <Card key={job.id} data={job} onSelect={() => handleOpenModal(job)} />
         ))}
         <Button
-          disabled={!hasNext}
+          disabled={hasNext}
           onClick={async () => {
             await getMoreJobPost(dispatch, index, pageSize);
           }}
@@ -48,7 +44,7 @@ function JobsBoard() {
           style={{ flex: 1, width: "100%" }}
         />
       </div>
-      <Modal open={open} job={{}} handleClose={handleCloseModal} />
+      <Modal open={open} job={modalJob} handleClose={handleCloseModal} />
     </>
   );
 }
