@@ -2,6 +2,7 @@
   --c-primary: #0675ce;
   --c-primary-light: #2c9bf5;
   --c-white: #ffffff;
+  --c-grey-30: #e0e0e0;
   --c-grey-50: #788894;
   --c-grey-60: #58636d;
   --c-grey-70: #454d53;
@@ -12,9 +13,10 @@
   --c-black-80: #3b4146;
 
   --fw-regular: 400;
-  --fw-regular: 400;
+  --fw-bold: 700;
 
   --fs-regular: 16px;
+  --fs-small: 13px;
   --fs-caption: 12px;
   --fs-h5: 22px;
 }

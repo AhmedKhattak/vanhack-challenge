@@ -1,1 +1,42 @@
-.container{}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 9px;
+  border: 1px solid var(--c-grey-30);
+  width: 785px;
+  height: 390px;
+
+  padding: 33px;
+}
+
+.card__section {
+  display: flex;
+  justify-content: space-between;
+}
+.card__header {
+  display: flex;
+  justify-content: flex-start;
+
+  max-width: 486px;
+
+  color: var(--c-primary);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-bold);
+}
+.card__info {
+  display: flex;
+  justify-content: flex-start;
+}
+.card__resume {
+  display: flex;
+  justify-content: flex-start;
+
+  color: var(--c-grey-90);
+  line-height: 191%;
+  font-size: var(--fs-small);
+}
+.card__footer {
+  display: flex;
+  justify-content: flex-start;
+}

@@ -17,8 +17,6 @@ function Tabs({ tabLabels, children, ...rest }: TabsProps) {
     setActiveIndex(parseInt(index || "0"));
   }
 
-  console.log(activeIndex);
-
   const childrenRenderer = React.useCallback(() => {
     return children[activeIndex];
   }, [activeIndex, children]);
