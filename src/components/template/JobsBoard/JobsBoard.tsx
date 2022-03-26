@@ -7,13 +7,21 @@ import styles from "./styles.module.css";
 
 export interface BackDropProps {
   open: boolean;
+  handleClose: () => void;
 }
 export interface ModalJobProps {}
 export interface JobsBoardProps {}
 
-const BackDrop = ({ open }: BackDropProps) => {
+const BackDrop = ({ open, handleClose }: BackDropProps) => {
+  React.useEffect(() => {
+    const backdropElement = document.querySelector("#backdrop");
+    backdropElement?.addEventListener("click", handleClose);
+
+    return () => backdropElement?.removeEventListener("click", handleClose);
+  }, [handleClose]);
   return (
     <div
+      id="backdrop"
       className={clsx([styles.backdrop, open ? false : styles.hidden])}
     ></div>
   );
@@ -62,7 +70,10 @@ function JobsBoard() {
         ))}
       </div>
       <Modal open={open} job={{}} handleClose={handleCloseModal} />
-      <BackDrop open={open} />
+      <BackDrop
+        open={open}
+        handleClose={() => setOpen((prevState) => !prevState)}
+      />
     </>
   );
 }
