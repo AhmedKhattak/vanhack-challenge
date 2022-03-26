@@ -1,1 +1,22 @@
-.container{}
+.badge {
+  color: var(--c-white);
+  font-size: var(--fs-caption);
+
+  background-color: var(--c-primary-light);
+  padding: 6px 12px;
+  border-radius: 32px;
+
+  margin-right: 12px;
+}
+.variant__outline {
+  color: var(--c-grey-80);
+
+  background-color: transparent;
+  border-radius: 20px;
+  border: 1px solid var(--c-grey-20);
+}
+.variant__text {
+  color: var(--c-grey-80);
+
+  background-color: transparent;
+}

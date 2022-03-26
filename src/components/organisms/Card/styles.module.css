@@ -27,7 +27,19 @@
 .card__info {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
 }
+.card__info-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-right: 21px;
+}
+.card__info-detail span {
+  margin-left: 1em;
+}
+
 .card__resume {
   display: flex;
   justify-content: flex-start;

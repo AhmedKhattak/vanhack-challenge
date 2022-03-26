@@ -1,1 +1,32 @@
-.container{}
+.button {
+  color: var(--c-white);
+  font-size: var(--fs-small);
+
+  background-color: var(--c-primary);
+  padding: 18px 37.5px;
+  border-radius: 3px;
+
+  margin-right: 12px;
+  border: none;
+
+  cursor: pointer;
+
+  transition: opacity 200ms ease-in;
+}
+.variant__outline {
+  color: var(--c-primary);
+
+  background-color: transparent;
+  border: 1px solid var(--c-primary);
+}
+.variant__text {
+  color: var(--c-grey-80);
+
+  background-color: transparent;
+  border: none;
+}
+
+.button:focus,
+.button:hover {
+  opacity: 0.8;
+}

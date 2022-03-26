@@ -1,14 +1,31 @@
+import clsx from "clsx";
 import * as React from "react";
 
 import styles from "./styles.module.css";
 
-export interface ButtonProps {}
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  label: string;
+  variant?: "default" | "outline" | "text";
+  onClick: () => void;
+}
 
-function Button() {
+function Button({
+  label,
+  variant = "default",
+  onClick = () => {},
+  ...rest
+}: ButtonProps) {
+  const getVariantClass = `variant__${variant}`;
+
   return (
-    <div className="container">
-      <h1>Button</h1>
-    </div>
+    <button
+      className={clsx(styles.button, variant && styles[getVariantClass])}
+      onClick={onClick}
+      {...rest}
+    >
+      {label}
+    </button>
   );
 }
 
