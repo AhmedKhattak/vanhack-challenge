@@ -8,25 +8,29 @@ import { tabs } from "../../constants";
 
 import styles from "./style.module.css";
 import clsx from "clsx";
+import Link from "next/link";
+import { useFetchJobs } from "../../hooks/useFetchJobs";
 
 function HomePage() {
   return (
     <main className={styles.container}>
       <section className={clsx([styles.section, styles.logo])}>
-        <Image
-          src={"/vanhack-small.svg"}
-          alt="A letter V and H simbolizing the company name: Van Hack"
-          width={136}
-          height={29}
-        />
+        <Link href="/" passHref>
+          <a>
+            <Image
+              src={"/vanhack-small.svg"}
+              alt="A letter V and H simbolizing the company name: Van Hack"
+              width={136}
+              height={29}
+            />
+          </a>
+        </Link>
       </section>
       <section className={styles.section}>
         {/* Tabs */}
-        <div>
-          <Tabs tabLabels={[tabs.jobsLabel, tabs.articleLabel]}>
-            {[<JobsBoard key="jobs" />, <LearnMore key="learn" />]}
-          </Tabs>
-        </div>
+        <Tabs tabLabels={[tabs.jobsLabel, tabs.articleLabel]}>
+          {[<JobsBoard key="jobs" />, <LearnMore key="learn" />]}
+        </Tabs>
       </section>
     </main>
   );

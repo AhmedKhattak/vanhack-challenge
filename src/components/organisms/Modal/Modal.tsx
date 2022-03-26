@@ -12,6 +12,12 @@ export interface ModalProps {
 }
 
 function Modal({ handleClose, job, open }: ModalProps) {
+  React.useEffect(() => {
+    document.body?.addEventListener("click", handleClose);
+
+    return () => document.body?.removeEventListener("click", handleClose);
+  }, [handleClose]);
+
   return (
     <div className={clsx(styles.modal, !open && styles.hidden)}>
       <div className={styles.modal__header}>

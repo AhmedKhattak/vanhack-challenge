@@ -13,6 +13,15 @@
 
   transition: opacity 200ms ease-in;
 }
+
+.button:disabled {
+  background-color: var(--c-grey-30);
+
+  cursor: not-allowed;
+
+  transition: none;
+}
+
 .variant__outline {
   color: var(--c-primary);
 

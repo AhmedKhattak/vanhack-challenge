@@ -1,12 +1,14 @@
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+
   border-radius: 9px;
   border: 1px solid var(--c-grey-30);
   width: 785px;
   height: 390px;
 
+  margin-bottom: 30px;
   padding: 33px;
 }
 

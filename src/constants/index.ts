@@ -9,8 +9,9 @@ export const tabs = {
   jobsLabel: "Recommended jobs",
   articleLabel: "Learn More",
 };
-export const confirmation = {
+export const buttons = {
   cancel: "Cancel",
   accept: "Apply",
   title: "Do you want to apply for this job",
+  loadMore: "Load More",
 };

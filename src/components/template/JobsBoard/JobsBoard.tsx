@@ -1,5 +1,8 @@
-import clsx from "clsx";
 import * as React from "react";
+import { JobProps } from "../../../@types";
+import { buttons } from "../../../constants";
+import { getMoreJobPost, useFetchJobs } from "../../../hooks/useFetchJobs";
+import { Button } from "../../atoms/Button";
 import { Card } from "../../organisms/Card";
 import { Modal } from "../../organisms/Modal";
 
@@ -9,52 +12,17 @@ export interface BackDropProps {
   open: boolean;
   handleClose: () => void;
 }
+
 export interface ModalJobProps {}
 export interface JobsBoardProps {}
-
-const BackDrop = ({ open, handleClose }: BackDropProps) => {
-  React.useEffect(() => {
-    const backdropElement = document.querySelector("#backdrop");
-    backdropElement?.addEventListener("click", handleClose);
-
-    return () => backdropElement?.removeEventListener("click", handleClose);
-  }, [handleClose]);
-  return (
-    <div
-      id="backdrop"
-      className={clsx([styles.backdrop, open ? false : styles.hidden])}
-    ></div>
-  );
-};
-
-const mockJob = [
-  {
-    id: 382705,
-    createdAt: "2004-06-02T00:00:10.6800461+00:00",
-    numberOfPositions: 5,
-    companyName: "Willms, Dicki and Rohan",
-    title: "Chief Configuration Specialist",
-    area: "Legacy",
-    description:
-      "Aliquid ullam quia et architecto dolorem esse consequatur ea.\nLibero suscipit magnam incidunt ut quaerat.",
-    skills:
-      "Sunt omnis ab voluptatem est vitae neque quisquam.\nDicta est id dignissimos totam.",
-    slug: "consequatur-non-facilis",
-    totalHires: 7,
-    flagCode: "LU",
-    location: "Alexandreton - Saudi Arabia",
-    relocate: "Remote",
-    salaryFrom: 30849,
-    salaryTo: 42092,
-    currency: "REAL",
-    jobType: "Officer",
-    canApply: false,
-  },
-];
 
 function JobsBoard() {
   const [open, setOpen] = React.useState(false);
   const [modalJob, setModalJob] = React.useState();
+  const {
+    dispatch,
+    state: { data, error, loading, hasNext, index, pageSize },
+  } = useFetchJobs();
 
   function handleOpenModal(job: any) {
     setOpen(true);
@@ -62,17 +30,24 @@ function JobsBoard() {
   function handleCloseModal() {
     setOpen(false);
   }
+
+  if (loading) return <p>Loading...</p>;
+
   return (
     <>
       <div className={styles.container}>
-        {mockJob.map((job) => (
+        {data.map((job: JobProps) => (
           <Card key={job.id} data={job} onSelect={() => handleOpenModal(job)} />
         ))}
+        <Button
+          disabled={!hasNext}
+          onClick={async () => {
+            await getMoreJobPost(dispatch, index, pageSize);
+          }}
+          label={buttons.loadMore}
+          style={{ flex: 1, width: "100%" }}
+        />
       </div>
-      <BackDrop
-        open={open}
-        handleClose={() => setOpen((prevState) => !prevState)}
-      />
       <Modal open={open} job={{}} handleClose={handleCloseModal} />
     </>
   );

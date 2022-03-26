@@ -6,49 +6,8 @@ import { Button } from "../../atoms/Button";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import { formartCurrency } from "../../../utils";
+import { JobProps } from "../../../@types";
 
-/**
- * {
-  id: 382705,
-  createdAt: "2004-06-02T00:00:10.6800461+00:00",
-  numberOfPositions: 5,
-  companyName: "Willms, Dicki and Rohan",
-  title: "Chief Configuration Specialist",
-  area: "Legacy",
-  description: "Aliquid ullam quia et architecto dolorem esse consequatur ea.\nLibero suscipit magnam incidunt ut quaerat.",
-  skills: "Sunt omnis ab voluptatem est vitae neque quisquam.\nDicta est id dignissimos totam.",
-  slug: "consequatur-non-facilis",
-  totalHires: 7,
-  flagCode: "LU",
-  location: "Alexandreton - Saudi Arabia",
-  relocate: "Remote",
-  salaryFrom: 30849,
-  salaryTo: 42092,
-  currency: "REAL",
-  jobType: "Officer",
-  canApply: false
- }
- */
-export interface JobProps {
-  id: number;
-  createdAt: string;
-  numberOfPositions: number;
-  companyName: string;
-  title: string;
-  area: string;
-  description: string;
-  skills: string;
-  slug: string;
-  totalHires: number;
-  flagCode: string;
-  location: string;
-  relocate: string;
-  salaryFrom: number;
-  salaryTo: number;
-  currency: string;
-  jobType: string;
-  canApply: boolean;
-}
 export interface CardProps {
   data: JobProps;
   onSelect: (data: JobProps) => void;
