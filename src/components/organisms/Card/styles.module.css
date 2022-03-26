@@ -49,6 +49,9 @@
   font-size: var(--fs-small);
 }
 .card__footer {
-  display: flex;
-  justify-content: flex-start;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+
+  justify-content: center;
 }
