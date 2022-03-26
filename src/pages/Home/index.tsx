@@ -2,6 +2,7 @@ import * as React from "react";
 import Image from "next/image";
 
 import styles from "./style.module.css";
+import { Tabs } from "../../components/molecules/Tabs";
 
 function HomePage() {
   return (
@@ -18,8 +19,12 @@ function HomePage() {
         <section className={styles.section}>
           {/* Tabs */}
           <div>
-            <span>tab1</span>
-            <span>tab2</span>
+            <Tabs tabLabels={["primeiro", "segundo"]}>
+              {[
+                React.createElement("h1", {}, "Olha"),
+                React.createElement("h1", {}, "Aqui"),
+              ]}
+            </Tabs>
           </div>
         </section>
       </div>
