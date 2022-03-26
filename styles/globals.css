@@ -1,9 +1,31 @@
+:root {
+  --c-primary: #0675ce;
+  --c-primary-light: #2c9bf5;
+  --c-white: #ffffff;
+  --c-grey-50: #788894;
+  --c-grey-60: #58636d;
+  --c-grey-70: #454d53;
+  --c-grey-80: #646464;
+  --c-grey-90: #4f4f4f;
+  --c-black-60: #58636d;
+  --c-black-70: #454d53;
+  --c-black-80: #3b4146;
+
+  --fw-regular: 400;
+  --fw-regular: 400;
+
+  --fs-regular: 16px;
+  --fs-caption: 12px;
+  --fs-h5: 22px;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: var(--fs-regular);
+  font-weight: var(--fw-regular);
+  font-family: "Inter", sans-serif;
 }
 
 a {

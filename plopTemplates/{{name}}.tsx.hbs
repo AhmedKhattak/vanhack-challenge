@@ -1,5 +1,6 @@
 import * as React from "react"
-import { {{name}}Container } from "./styles"
+
+import styles from "./styles.module.css"
 
 export interface {{name}}Props {
   
@@ -8,9 +9,9 @@ export interface {{name}}Props {
 
 function {{name}}() {
 	return (
-    	<{{name}}Container >
+    	<div className="container" >
         	<h1>{{name}}</h1>
-        </{{name}}Container>
+        </div>
     )
 }
 
