@@ -23,8 +23,13 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/jestSetup.js"  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "ts-node": {
+    "moduleTypes": {
+      "jest.config.ts": "cjs"
+    }
+  },
 }
